@@ -13,3 +13,15 @@ jobs:
         with:
           spec: cypress/e2e/orangeHRM.cy.js
           browser: firefox
+      
+      - name : Copy Test execution videos and screenshots
+        run : 
+        mkdir pubic
+        cp -r cypress/videos public/videos
+        cp -r cypress/screenshots public/screenshots
+
+      -name : Merge test Reports
+       run : npm run combine:report
+
+       -name : Generate HTML report
+        run : npm run generate:report
