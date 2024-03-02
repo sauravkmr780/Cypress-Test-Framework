@@ -53,7 +53,7 @@ describe('My Orange HRM end to end Test suite', () => {
   cy.get('button.oxd-icon-button.oxd-table-cell-action-space').last().click();
   cy.wait('@editButtonClick').its('response.statusCode').should('eq', 200);
   cy.get('input[name="lastName"]').clear().type('Cenation');
-  cy.intercept('PUT','**/personal-details').as('saveButton');
+  cy.intercept('PUT','**/personal-details').as('saveButton')
   cy.get('button[type="submit"]').first().click();
   // Validate Updated details successfully
   cy.contains('Successfully Updated');
