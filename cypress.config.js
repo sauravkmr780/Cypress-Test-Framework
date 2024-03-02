@@ -1,6 +1,9 @@
 const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
+  env: {
+    baseUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
+  },
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,

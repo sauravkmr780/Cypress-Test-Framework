@@ -7,7 +7,7 @@ describe('Orange HRM end to end Test suite', () => {
   })
   it('Orange HRM end to end Test case', () => {
   //Visit the Application
-  cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+  cy.visit(Cypress.env('baseUrl'));
   // Enter username
   cy.get('input[name="username"]').type('Admin');
   // Enter password
