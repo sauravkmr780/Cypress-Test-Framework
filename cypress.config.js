@@ -4,6 +4,7 @@ module.exports = defineConfig({
   env: {
     baseUrl: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login',
   },
+  video:true,
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     charts: true,
