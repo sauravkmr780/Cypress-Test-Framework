@@ -1,11 +1,11 @@
 /// <reference types="cypress" />
 
-describe('My Orange HRM end to end Test suite', () => {
+describe('Orange HRM end to end Test suite', () => {
   before(() => {
       // disable Cypress's default behavior of logging all XMLHttpRequests and fetches
       cy.intercept({ resourceType: /xhr|fetch/ }, { log: false })
   })
-  it('My Orange HRM end to end Test case', () => {
+  it('Orange HRM end to end Test case', () => {
   //Visit the Application
   cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
   // Enter username
