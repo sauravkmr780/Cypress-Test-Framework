@@ -17,4 +17,3 @@ jobs:
         with:
           spec: cypress/e2e/**.cy.js
           browser: firefox
-          continue-on-error: true
