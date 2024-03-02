@@ -1,25 +1,19 @@
-name: Create Cypress report
-on:
-  push:
-    branches:
-      - 'main'
+name: Cypress tests
+on: push
 jobs:
   cypress-run:
-  name: Cypress run
-  runs-on: ubuntu-18.04
-  container: cypress/browsers:node12.16.2-chrome81-ff75
-  steps:
-    - uses: actions/checkout@v2
-    - name: Install a project with a clean slate
-      run: |
-        npm ci
-        $(npm bin)/cypress cache path
-        $(npm bin)/cypress cache list
-        $(npm bin)/cypress verify
+    name: Cypress run
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Run Cypress tests
-      run: npm run test:chrome
-      continue-on-error: true
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          spec: cypress/e2e/orangeHRM.cy.js
+          browser: firefox
+          continue-on-error: true
 
     - name: Copy test execution videos
       run: |
