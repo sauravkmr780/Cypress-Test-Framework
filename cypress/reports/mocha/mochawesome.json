@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-02T21:47:18.128Z",
+    "end": "2024-03-02T21:47:55.409Z",
+    "duration": 37281,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "039992f2-6f13-4e1f-9b0c-03edad70d2e6",
+      "title": "",
+      "fullFile": "cypress\\e2e\\orangeHRM.cy.js",
+      "file": "cypress\\e2e\\orangeHRM.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2006574c-a585-471f-8a6f-fd3511a58f8c",
+          "title": "My Orange HRM end to end Test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "My Orange HRM end to end Test case",
+              "fullTitle": "My Orange HRM end to end Test suite My Orange HRM end to end Test case",
+              "timedOut": null,
+              "duration": 30474,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-passed\",\n  \"value\": \"cypress\\\\e2e\\\\orangeHRM.cy.js\"\n}",
+              "code": "//Visit the Application\ncy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');\n// Enter username\ncy.get('input[name=\"username\"]').type('Admin');\n// Enter password\ncy.get('input[name=\"password\"]').type('admin123');\ncy.intercept('**/dashboard/*').as('uiLogin');\n// Click Login\ncy.get('button[type=\"submit\"]').click();\ncy.wait('@uiLogin').its('response.statusCode').should('eq', 200);\n// Assert loggedin to Dashboard page\ncy.url().should('include', '/dashboard/index');\ncy.intercept('GET', '**/subunits').as('pimclick');\n// Click PIM hyperLink \ncy.get('nav.oxd-navbar-nav').contains('PIM').click();\ncy.wait('@pimclick').its('response.statusCode').should('eq', 200);\ncy.intercept('GET', '**/pim/employees').as('addButton');\n// Click Add Button\ncy.get('button.oxd-button.oxd-button--medium.oxd-button--secondary').last().click();\ncy.wait('@addButton').its('response.statusCode').should('eq', 200);\n// Enter employee firstName\ncy.get('input[name=\"firstName\"]').type('John');\n// Enter employee lastName\ncy.get('input[name=\"lastName\"]').type('Cena');\nconst empid = userID_Numeric();\n// Enter random and unique employee id\ncy.get('input.oxd-input.oxd-input--active').last().clear().type(empid);\ncy.log(empid);\ncy.intercept('GET', '**/pim/employees').as('saveButton');\n// Click Save button\ncy.get('button[type=\"submit\"]').click();\n// Validate Saved successfully\ncy.contains('Successfully Saved');\ncy.wait('@saveButton').its('response.statusCode').should('eq', 200);\ncy.intercept('GET', '**/subunits').as('empListclick');\n// Click employee list and search with same employee id\ncy.get('nav.oxd-topbar-body-nav').contains('Employee List').click({\n  force: true\n});\ncy.wait('@empListclick').its('response.statusCode').should('eq', 200);\ncy.get('input.oxd-input.oxd-input--active').last().clear().type(empid);\ncy.intercept('GET', '**/pim/employees**').as('searchButtonClick');\ncy.get('button[type=\"submit\"]').click();\ncy.wait('@searchButtonClick').its('response.statusCode').should('eq', 200);\n// Edit same employee id last name details\ncy.intercept('GET', '**/pim/employees').as('editButtonClick');\ncy.get('button.oxd-icon-button.oxd-table-cell-action-space').last().click();\ncy.wait('@editButtonClick').its('response.statusCode').should('eq', 200);\ncy.get('input[name=\"lastName\"]').clear().type('Cenation');\ncy.intercept('PUT', '**/personal-details').as('saveButton');\ncy.get('button[type=\"submit\"]').first().click();\n// Validate Updated details successfully\ncy.contains('Successfully Updated');\ncy.wait('@saveButton').its('response.statusCode').should('eq', 200);\ncy.intercept('GET', '**/subunits').as('empListclick');\n// Click employee list and search with same employee id\ncy.get('nav.oxd-topbar-body-nav').contains('Employee List').click({\n  force: true\n});\ncy.wait('@empListclick').its('response.statusCode').should('eq', 200);\ncy.get('input.oxd-input.oxd-input--active').last().clear().type(empid);\ncy.intercept('GET', '**/pim/employees**').as('searchButtonClick');\ncy.get('button[type=\"submit\"]').click();\ncy.wait('@searchButtonClick').its('response.statusCode').should('eq', 200);\n// Click delete icon from UI for same employee id\ncy.get('i.oxd-icon.bi-trash').click({\n  force: true\n});\n// Validate alert message\ncy.on('window:confirm', t => {\n  expect(t).to.contains(\" Yes, Delete \");\n});\ncy.intercept('DELETE', '**/pim/employees').as('deleteButton');\n// Validate Deleted details successfully\ncy.get('button.oxd-button.oxd-button--medium.oxd-button--label-danger.orangehrm-button-margin').click({\n  force: true\n});\ncy.contains('Successfully Deleted');\ncy.wait('@deleteButton').its('response.statusCode').should('eq', 200);\n// Post Delete Validate no records found message on Application\ncy.wait(3000);\ncy.contains('No Records Found');\n// Click Logout to application\ncy.get('p.oxd-userdropdown-name').click();\ncy.contains('Logout').click({\n  force: true\n});",
+              "err": {},
+              "uuid": "bcb9ad29-4b7f-49da-abf9-affec51a3cb4",
+              "parentUUID": "2006574c-a585-471f-8a6f-fd3511a58f8c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "bcb9ad29-4b7f-49da-abf9-affec51a3cb4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 30474,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

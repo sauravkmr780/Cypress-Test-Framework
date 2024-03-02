@@ -13,6 +13,3 @@ jobs:
         with:
           spec: cypress/e2e/orangeHRM.cy.js
           browser: firefox
-
-      - name: Merge test reports
-        run: npm run merge:reports
