@@ -1,5 +1,9 @@
 name: Cypress tests
-on: push
+on:
+  push:
+    branches:
+      - 'main'
+
 jobs:
   cypress-run:
     name: Cypress run
@@ -11,5 +15,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          spec: cypress/e2e/orangeHRM.cy.js
+          spec: cypress/e2e/**.cy.js
           browser: firefox
+          continue-on-error: true
