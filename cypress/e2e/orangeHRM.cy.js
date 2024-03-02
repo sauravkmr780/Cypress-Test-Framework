@@ -82,7 +82,7 @@ describe('Orange HRM end to end Test suite', () => {
   cy.contains('No Records Found');
   // Click Logout to application
   cy.get('p.oxd-userdropdown-name').click();
-  cy.contains('Logout').click({force:true})
+  cy.contains('Logout').click({force:true});
   
   })
 })
