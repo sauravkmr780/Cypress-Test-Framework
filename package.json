@@ -1,0 +1,22 @@
+{
+  "name": "cypress-test-framework",
+  "version": "1.0.0",
+  "description": "OrangeHRM end to end Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sauravkmr780/Cypress-Test-Framework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sauravkmr780/Cypress-Test-Framework/issues"
+  },
+  "homepage": "https://github.com/sauravkmr780/Cypress-Test-Framework#readme",
+  "dependencies": {
+    "cypress": "^13.6.6"
+  }
+}
