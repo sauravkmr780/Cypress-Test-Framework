@@ -4,9 +4,10 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
 
   e2e: {
-    reporter: 'cypress-mochawesome-reporter',
+    reporter: '../node_modules/cypress-mochawesome-reporter',
+    video: true,
     reporterOptions: {
-      reportDir: "cypress/Reports",
+      reportDir: 'reports/mochawesome',
       charts: true,
       overwrite: false,
       html: false,
