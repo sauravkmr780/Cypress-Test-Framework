@@ -6,8 +6,13 @@ module.exports = defineConfig({
   e2e: {
     reporter: 'cypress-mochawesome-reporter',
     reporterOptions: {
+      reportDir: "cypress/Reports",
       charts: true,
-      reportPageTitle: 'custom-title',
+      overwrite: false,
+      html: false,
+      json: true,
+      reportFilename: "Orange Cypress Test Report",
+      reportPageTitle: 'Cypess-Report',
       embeddedScreenshots: true,
       inlineAssets: true,
       saveAllAttempts: false,
