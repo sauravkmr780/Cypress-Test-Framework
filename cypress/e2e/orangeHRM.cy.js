@@ -58,7 +58,7 @@ describe('My Orange HRM end to end Test suite', () => {
   // Validate Updated details successfully
   cy.contains('Successfully Updated');
   cy.wait('@saveButton').its('response.statusCode').should('eq', 200);
-  cy.intercept('GET','**/subunits').as('empListclick')
+  cy.intercept('GET','**/subunits').as('empListclick');
   // Click employee list and search with same employee id
   cy.get('nav.oxd-topbar-body-nav').contains('Employee List').click({force:true});
   cy.wait('@empListclick').its('response.statusCode').should('eq', 200);
